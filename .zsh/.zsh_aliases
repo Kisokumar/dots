@@ -1,0 +1,67 @@
+#shell commands
+alias q="exit"
+alias vim="nvim"
+alias c="clear"
+alias h="history"
+alias g="git"
+alias py="python3"
+alias showpy="ls *.py"
+alias suvim="sudo -E vim"
+alias refresh="source ~/.zshrc"
+alias countfiles="ls -1 | wc -l"
+alias nvconfig="vim ~/.config/nvim/init.vim"
+alias update="sudo apt update -y && sudo apt upgrade -y"
+alias lq="ls -vatX --sort=time --sort=extension" #Linux only
+alias allcolors='(x=`tput op` y=`printf %80s`;for i in {0..255};do o=00$i;echo -e ${o:${#o}-3:3} `tput setaf $i;tput setab $i`${y// /=}$x;done)'
+
+#utilities
+alias disks="lsblk"
+alias system="neofetch"
+alias diskanalysis="ncdu"
+alias weather="curl wttr.in"
+alias speed="speedtest-cli"
+alias cryptorates="curl rate.sx"
+alias stayawake="caffeinate -t 100000000000"
+
+#tmux
+alias tmuxnew="tmux new -s"
+alias tmuxdel="tmux kill-session -t"
+alias tmuxjoin="tmux attach-session -t"
+
+#git aliases
+alias gp="git push"
+alias gu="git pull"
+alias gl="git pull"
+alias ga="git add ."
+alias gs="git status"
+alias gc="git commit -am"
+
+#functions
+unzp ()
+{
+    echo unzipping $1
+  if [ -f $1 ] ; then
+    case $1 in
+      *.tar.bz2)   tar xjf $1   ;;
+      *.tar.gz)    tar xzf $1   ;;
+      *.bz2)       bunzip2 $1   ;;
+      *.rar)       unrar x $1     ;;
+      *.gz)        gunzip $1    ;;
+      *.tar)       tar xf $1    ;;
+      *.tbz2)      tar xjf $1   ;;
+      *.tgz)       tar xzf $1   ;;
+      *.zip)       unzip $1     ;;
+      *.Z)         uncompress $1;;
+      *.7z)        7z x $1      ;;
+      *)           echo "'$1' cannot be extracted via unzp function()" ;;
+
+    esac
+  else
+    echo "'$1' is not a valid file to be extracted via unzp function"
+  fi
+}
+
+#games
+alias snake='nsnake'
+alias pacman='pacman4console'
+alias tetris='tetris-thefenriswolf.tetris'
