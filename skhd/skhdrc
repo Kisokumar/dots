@@ -188,10 +188,10 @@ alt + shift - r : brew services restart skhd && brew services restart yabai
 # shift + alt - left   : yabai -m window --grid 1:2:0:0:1:1
 
 # create desktop, move window and follow focus - uses jq for parsing json (brew install jq)
-# shift + cmd - n : yabai -m space --create && \
-#                   index="$(yabai -m query --spaces --display | jq 'map(select(."native-fullscreen" == 0))[-1].index')" && \
-#                   yabai -m window --space "${index}" && \
-#                   yabai -m space --focus "${index}"
+# alt + shift - n : yabai -m space --create && \
+#                    index="$(yabai -m query --spaces --display | jq 'map(select(."native-fullscreen" == 0))[-1].index')" && \
+#                    yabai -m window --space "${index}" && \
+#                    yabai -m space --focus "${index}"
 
 # fast focus desktop
 # cmd + alt - x : yabai -m space --focus recent
@@ -202,11 +202,14 @@ alt + shift - r : brew services restart skhd && brew services restart yabai
 # shift + cmd - 2 : yabai -m window --space  2; yabai -m space --focus 2
 
 # focus monitor
-# ctrl + alt - z  : yabai -m display --focus prev
+cmd - l  : yabai -m display --focus next
+cmd - h  : yabai -m display --focus prev
 # ctrl + alt - 3  : yabai -m display --focus 3
 
 # send window to monitor and follow focus
-# ctrl + cmd - c  : yabai -m window --display next; yabai -m display --focus next
+cmd + shift - l  : yabai -m window --display next; yabai -m display --focus next
+#cmd + shift - h  : yabai -m window --display next; yabai -m display --focus prev
+cmd + shift - h  : yabai -m window --display 1; yabai -m display --focus 1
 # ctrl + cmd - 1  : yabai -m window --display 1; yabai -m display --focus 1
 
 # move floating window
